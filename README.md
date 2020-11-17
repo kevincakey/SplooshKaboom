@@ -48,7 +48,7 @@
  
  ![strategy classes](https://i.imgur.com/h6jMNGa.png)
  
- ![factory method](https://i.imgur.com/uVALTlh.png)
+ ![factory method](https://i.imgur.com/NwzZUcT.png)
  
  iterator
  
