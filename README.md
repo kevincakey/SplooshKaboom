@@ -50,7 +50,6 @@
  ![factory method](https://i.imgur.com/uVALTlh.png)
  
  https://docs.google.com/document/d/1BHby3z_R81-h9nBX1X1VqKi_zeHaK0OCv1Ut50D1CEQ/edit?usp=sharing
- https://docs.google.com/presentation/d/1VmRAzVGOAlvdO45WuVrJFKhvotEgdnqJqUdekE9_5kA/edit?usp=sharing
  
  > ## Phase III
  > You will need to schedule a check-in with the TA (during lab hours or office hours). Your entire team must be present. 
