@@ -45,6 +45,7 @@
  > Include a class diagram(s) for each design pattern and a description of the diagram(s). This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper OMT notation (as discussed in the course slides). You may combine multiple design patterns into one diagram if you'd like, but it needs to be clear which portion of the diagram represents which design pattern (either in the diagram or in the description). 
  https://docs.google.com/document/d/19SjOAE7IAV9ce3LmiN7ZxrRPJ8RNSNV0Za6MGgSUrEg/edit?usp=sharing
  https://docs.google.com/document/d/1BHby3z_R81-h9nBX1X1VqKi_zeHaK0OCv1Ut50D1CEQ/edit?usp=sharing
+ https://docs.google.com/presentation/d/1VmRAzVGOAlvdO45WuVrJFKhvotEgdnqJqUdekE9_5kA/edit?usp=sharing
  
  > ## Phase III
  > You will need to schedule a check-in with the TA (during lab hours or office hours). Your entire team must be present. 
