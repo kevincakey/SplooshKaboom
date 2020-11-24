@@ -48,7 +48,13 @@ Squid::Squid(int startX, int startY, int endX, int endY) {//should only be calle
 	}
 
 }
+
+void Squid::createSquid() {
+	howHard->makeSquids(this);
+}
 bool Squid::isSquid(int x, int y) {
+	x--;
+	y--;
 	for (int i = 0; i < this->xLoc.size(); i++) {
 		if (this->xLoc.at(i) == x && this->yLoc.at(i) == y) {
 			return true;
@@ -65,5 +71,13 @@ vector<int> Squid::getYPos() {
 
 void Squid::setDifficulty(Difficulty* difficulty) {
 	this->howHard = difficulty;
+}
+void Squid::setXLoc(int start, int end) {
+	this->xLoc.push_back(start);
+	this->xLoc.push_back(end);
+}
+void Squid::setYLoc(int start, int end) {
+	this->yLoc.push_back(start);
+	this->yLoc.push_back(end);
 }
 #endif
