@@ -1,11 +1,9 @@
-#include "../Header/easy.h"
-#include <cstdlib>
-#include <stdlib.h>
-#include <time.h>
+#include "../header/medium.h"
+#include <iostream>
+
 using namespace std;
 
-//bigger squids means easier to find
-void Easy::makeSquids(Squid* toCreate) {
+void Medium::makeSquids(Squid* toCreate) {
 	int begX = 0;
 	int endX = 0;
 	int begY = 0;
@@ -23,7 +21,9 @@ void Easy::makeSquids(Squid* toCreate) {
 		if (begY > endY) {
 			swap(begY, endY);
 		}
-		while (endY - begY < 5){
+		//cout << "endY is: " << endY << " and begY is: " << begY << endl;
+		while ((endY - begY > 4) || (endY - begY == 0)) {
+			//cout << "endY is: " << endY << " and begY is: " << begY << endl;
 			endY = rand() % 8;
 			if (begY > endY) {
 				swap(begY, endY);
@@ -37,7 +37,9 @@ void Easy::makeSquids(Squid* toCreate) {
 		if (begX > endX) {
 			swap(begX, endX);
 		}
-		while (endX - begX < 5) {//squids can't be smaller than 5 units
+		//cout << "endx is: " << endX << " and begX is: " << begX << endl;
+		while ((endX - begX > 4) || (endX - begX == 0)) {
+			//cout << "endx is: " << endX << " and begX is: " << begX << endl;
 			endX = rand() % 8;
 			if (begX > endX) {
 				swap(begX, endX);
