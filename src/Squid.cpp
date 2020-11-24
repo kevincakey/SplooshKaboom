@@ -53,12 +53,20 @@ void Squid::createSquid() {
 	howHard->makeSquids(this);
 }
 bool Squid::isSquid(int x, int y) {
-	x--;
-	y--;
-	for (int i = 0; i < this->xLoc.size(); i++) {
-		if (this->xLoc.at(i) == x && this->yLoc.at(i) == y) {
-			return true;
-		}
+	
+	int begX = xLoc.at(0);
+	int begY = yLoc.at(0);
+
+	int endX = xLoc.at(1);
+	int endY = yLoc.at(1);
+
+	/*
+	cout << " begx and begy are: " << begX << " " << begY << endl;
+	cout << "endX and endY are: " << endX << " " << endY << endl;
+	cout << "x and y are: " << x << " " << y << endl;
+	*/
+	if ((endX - x >= 0) && (endY - y >= 0) && (y - begY >= 0) && (x - begX >= 0)) {
+		return true;
 	}
 	return false;
 }
