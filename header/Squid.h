@@ -4,6 +4,8 @@
 #include "difficulty.h"
 #include <vector>
 using namespace std;
+class Difficulty;
+
 class Squid {
 private:
 	vector<int> xLoc;
