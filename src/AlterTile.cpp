@@ -26,14 +26,22 @@ void AlterTile::displayChange (int x ,int y, string tile) {
 	// print miss 'o'
 	// on board
 
+	tile == "~";
+
+	cout << tile << endl;
+	cout << endl; 
+
 	if (checkHit(x, y) == true) {
 		cout << "hit!\n\n";
 		replace(tile.begin(), tile.end(), '~', 'x');
-
+		cout << tile;
+		cout << endl;
 	}
 	else if (checkHit(x, y) == false) {
 		cout << "miss!\n\n";
 		replace(tile.begin(), tile.end(), '~', 'o');
+		cout << tile;
+		cout << endl;
 	}
 }
 	
