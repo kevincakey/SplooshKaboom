@@ -2,8 +2,7 @@
 #define DIFFICULTY_H
 
 #include "Squid.h"
-#include <stdlib.h>
-#include <time.h>
+#include <iostream>
 using namespace std;
 
 class Squid;

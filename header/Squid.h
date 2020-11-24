@@ -2,8 +2,12 @@
 #ifndef SQUID_H
 #define SQUID_H
 #include "difficulty.h"
+#include <iostream>
 #include <vector>
 using namespace std;
+
+class Difficulty;
+
 class Squid {
 private:
 	vector<int> xLoc;
