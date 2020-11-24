@@ -1,0 +1,16 @@
+#ifndef DIFFICULTY_H
+#define DIFFICULTY_H
+
+#include "Squid.h"
+#include <stdlib.h>
+#include <time.h>
+using namespace std;
+
+class Squid;
+
+class Difficulty {
+public:
+	Difficulty() { };
+	virtual void makeSquids(Squid*) = 0;
+};
+#endif

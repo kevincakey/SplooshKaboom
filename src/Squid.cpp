@@ -1,10 +1,10 @@
 #ifndef SQUID_CPP
 #define SQUID_CPP
-#include "Squid.h"
+#include "../header/Squid.h"
 #include <iostream>
 
 
-Squid::Squid(int startX, int startY, int endX, int endY) {
+Squid::Squid(int startX, int startY, int endX, int endY) {//should only be called by the difficulty stategy pattern
 	if (startX > endX) {
 		swap(startX, endX);
 	}
@@ -61,5 +61,9 @@ vector<int> Squid::getXPos() {
 }
 vector<int> Squid::getYPos() {
 	return this->yLoc;
+}
+
+void Squid::setDifficulty(Difficulty* difficulty) {
+	this->howHard = difficulty;
 }
 #endif
