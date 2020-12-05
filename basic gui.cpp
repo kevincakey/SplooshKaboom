@@ -25,6 +25,7 @@ int main() {
 	}
 
 	Squid* mainSquid = new Squid();
+
 	Easy* easy = new Easy();
 	mainSquid->setDifficulty(easy);
 
