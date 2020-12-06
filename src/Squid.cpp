@@ -54,19 +54,10 @@ void Squid::createSquid() {
 }
 bool Squid::isSquid(int x, int y) {
 	
-	int begX = xLoc.at(0);
-	int begY = yLoc.at(0);
-
-	int endX = xLoc.at(1);
-	int endY = yLoc.at(1);
-
-	/*
-	cout << " begx and begy are: " << begX << " " << begY << endl;
-	cout << "endX and endY are: " << endX << " " << endY << endl;
-	cout << "x and y are: " << x << " " << y << endl;
-	*/
-	if ((endX - x >= 0) && (endY - y >= 0) && (y - begY >= 0) && (x - begX >= 0)) {
-		return true;
+	for (int i = 0; i < xLoc.size(); i++) {
+		if (x == xLoc.at(i) && y == yLoc.at(i)) {
+			return true;
+		}
 	}
 	return false;
 }
@@ -80,12 +71,10 @@ vector<int> Squid::getYPos() {
 void Squid::setDifficulty(Difficulty* difficulty) {
 	this->howHard = difficulty;
 }
-void Squid::setXLoc(int start, int end) {
-	this->xLoc.push_back(start);
-	this->xLoc.push_back(end);
+void Squid::setXLoc(int x) {
+	this->xLoc.push_back(x);
 }
-void Squid::setYLoc(int start, int end) {
-	this->yLoc.push_back(start);
-	this->yLoc.push_back(end);
+void Squid::setYLoc(int y) {
+	this->yLoc.push_back(y);
 }
 #endif

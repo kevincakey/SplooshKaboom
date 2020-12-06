@@ -29,6 +29,7 @@ void Medium::makeSquids(Squid* toCreate) {
 				swap(begY, endY);
 			}
 		}
+		//begY++;//changing begY so that it can't be 0 to make it more clear that the hit position should be tile x,1
 	}
 	else {
 		endY = begY;
@@ -45,7 +46,27 @@ void Medium::makeSquids(Squid* toCreate) {
 				swap(begX, endX);
 			}
 		}
+		//begX++;//making it so x can't be 0
 	}
-	toCreate->setXLoc(begX, endX);
-	toCreate->setYLoc(begY, endY);
+	begX++;
+	endX++;
+
+	begY++;
+	endY++;
+	if (begX != endX) {
+		for (int i = begX; i <= endX; i++) {
+			toCreate->setXLoc(i);
+			toCreate->setYLoc(begY);
+		}
+	}
+	else if(begY != endY) {
+		for (int i = begY; i <= endY; i++) {
+			toCreate->setXLoc(begX);
+			toCreate->setYLoc(i);
+		}
+	}
+	else {
+		cout << "error: squid creation failed" << endl;
+		exit(1);
+	}
 }

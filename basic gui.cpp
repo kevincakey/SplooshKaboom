@@ -42,55 +42,55 @@ int main() {
 
 	thirdSquid->createSquid();
 
-	vector<int> rowPos = mainSquid->getXPos();
-	vector<int> colPos = mainSquid->getYPos();
+	vector<int> xPos = mainSquid->getXPos();
+	vector<int> yPos = mainSquid->getYPos();
 
-	for (int i = 0; i < rowPos.size(); i++) {
-		cout << rowPos.at(i) << " ";
-		cout << colPos.at(i) << " ";
+	for (int i = 0; i < xPos.size(); i++) {
+		cout << xPos.at(i) << " ";
+		cout << yPos.at(i) << " ";
 		cout << endl;
 	}
+	//for (int i = 0; i < 10; i++) {
+		cout << "guess x is: ";
+		cin >> guessX;
+		cout << "guessY is: ";
+		cin >> guessY;
 
-	cout << "guess x is: ";
-	cin >> guessX;
-	cout << "guessY is: ";
-	cin >> guessY;
+		if (mainSquid->isSquid(guessX, guessY)) {
+			cout << "is a hit!" << endl;
+		}
+		else {
+			cout << "was not a hit :(" << endl;
+		}
+	//}
 
-	if (mainSquid->isSquid(guessX, guessY)) {
-		cout << "is a hit!" << endl;
-	}
-	else {
-		cout << "was not a hit :(" << endl;
-	}
-
-
-	rowPos = secondSquid->getXPos();
-	colPos = secondSquid->getYPos();
-	for (int i = 0; i < rowPos.size(); i++) {
-		cout << rowPos.at(i) << " ";
-		cout << colPos.at(i) << " ";
+	xPos = secondSquid->getXPos();
+	yPos = secondSquid->getYPos();
+	for (int i = 0; i < xPos.size(); i++) {
+		cout << xPos.at(i) << " ";
+		cout << yPos.at(i) << " ";
 		cout << endl;
 	}
+	//for (int i = 0; i < 10; i++) {
+		cout << "guess x is: ";
+		cin >> guessX;
+		cout << "guessY is: ";
+		cin >> guessY;
 
-	cout << "guess x is: ";
-	cin >> guessX;
-	cout << "guessY is: ";
-	cin >> guessY;
-
-	if (secondSquid->isSquid(guessX, guessY)) {
-		cout << "is a hit!" << endl;
-	}
-	else {
-		cout << "was not a hit :(" << endl;
-	}
+		if (secondSquid->isSquid(guessX, guessY)) {
+			cout << "is a hit!" << endl;
+		}
+		else {
+			cout << "was not a hit :(" << endl;
+		}
+	//}
 
 
-
-	rowPos = thirdSquid->getXPos();
-	colPos = thirdSquid->getYPos();
-	for (int i = 0; i < rowPos.size(); i++) {
-		cout << rowPos.at(i) << " ";
-		cout << colPos.at(i) << " ";
+	xPos = thirdSquid->getXPos();
+	yPos = thirdSquid->getYPos();
+	for (int i = 0; i < xPos.size(); i++) {
+		cout << xPos.at(i) << " ";
+		cout << yPos.at(i) << " ";
 		cout << endl;
 	}
 
