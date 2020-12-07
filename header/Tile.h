@@ -9,6 +9,8 @@ private:
 	int status;
 public:
 	virtual string msg() = 0;
+	virtual bool checkSquid() = 0;
+	virtual bool isHit() = 0;
 };
 
 #endif
