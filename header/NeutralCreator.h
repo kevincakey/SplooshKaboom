@@ -8,7 +8,7 @@
 class NeutralCreator : public TileCreator
 {
 public:
-	Tile* createTile(int, int, Squid*) { return new Neutral(int, int, Squid*); };
+	Tile* createTile(int x, int y, Squid* s) { return new Neutral(x, y, s); };
 };
 
 #endif
