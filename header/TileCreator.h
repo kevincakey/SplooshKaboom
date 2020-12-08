@@ -14,6 +14,10 @@ enum TileType
 
 class TileCreator
 {
+private:
+	int xLoc;
+	int yLoc;
+	Squid* squid;
 public:
 	virtual Tile* createTile(int x, int y, Squid* s) = 0;
 	string operation(int x, int y, Squid* s)
