@@ -7,8 +7,13 @@
 
 class NeutralCreator : public TileCreator
 {
+private:
+	int xLoc;
+	int yLoc;
+	Squid* squid;
 public:
-	Tile* createTile(int x, int y, Squid* s) { return new Neutral(x, y, s); };
+	NeutralCreator(int xL, int yL, Squid* sq) { xLoc = xL; yLoc = yL; squid = sq; };
+	Tile* createTile() { return new Neutral(xLoc, yLoc, squid); };
 };
 
 #endif
