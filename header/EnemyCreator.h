@@ -7,13 +7,9 @@
 
 class EnemyCreator : public TileCreator
 {
-private:
-	int xLoc;
-	int yLoc;
-	Squid* squid;
 public:
-	EnemyCreator(int xL, int yL, Squid* sq) { xLoc = xL; yLoc = yL; squid = sq; };
-	Tile* createTile() { return new Enemy(xLoc, yLoc, squid); };
+	EnemyCreator() {};
+	Tile* createTile() { return new Enemy(); };
 };
 
 #endif

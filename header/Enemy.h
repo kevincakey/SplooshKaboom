@@ -6,25 +6,32 @@
 class Enemy : public Tile
 {
 private:
-	int xLoc;
-	int yLoc;
-	Squid* squid;
+	string secretValue = "x";
+	bool hit = false;
 public:
-	Enemy(int x, int y, Squid* s)
-	{
-		xLoc = x;
-		yLoc = y;
-		squid = s;
-	}
 	bool checkSquid()
-	{
-		return squid->isSquid(xLoc, yLoc);
-	}
-	bool isHit()
 	{
 		return true;
 	}
-	string msg() { return "Enemy Tile"; };
+	bool isHit()
+	{
+		return hit;
+	}
+	string msg()
+	{
+		if (isHit())
+		{
+			return secretValue;
+		}
+		else
+		{
+			return "~";
+		}
+	}
+	void setHit()
+	{
+		hit = true;
+	}
 };
 
 #endif

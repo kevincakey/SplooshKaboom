@@ -7,14 +7,11 @@ using namespace std;
 
 class Tile
 {
-private:
-	int xLoc;
-	int yLoc;
-	Squid* squid;
 public:
 	virtual string msg() = 0;
 	virtual bool checkSquid() = 0;
 	virtual bool isHit() = 0;
+	virtual void setHit() = 0;
 };
 
 #endif

@@ -9,20 +9,16 @@ using namespace std;
 
 enum TileType
 {
-	EnemyTile, NeutralTile, FogTile
+	EnemyTile, NeutralTile
 };
 
 class TileCreator
 {
-private:
-	int xLoc;
-	int yLoc;
-	Squid* squid;
 public:
-	virtual Tile* createTile(int x, int y, Squid* s) = 0;
-	string operation(int x, int y, Squid* s)
+	virtual Tile* createTile() = 0;
+	string operation()
 	{
-		Tile* t = this->createTile(x, y, s);
+		Tile* t = this->createTile();
 		string result = "Created with " + t->msg();
 		return result;
 	}

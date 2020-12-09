@@ -6,25 +6,32 @@
 class Neutral : public Tile
 {
 private:
-	int xLoc;
-	int yLoc;
-	Squid* squid;
+	string secretValue = "o";
+	bool hit = false;
 public:
-	Neutral(int x, int y, Squid* s)
-	{
-		xLoc = x;
-		yLoc = y;
-		squid = s;
-	}
 	bool checkSquid()
 	{
-		return squid->isSquid(xLoc, yLoc);
+		return false;
 	}
 	bool isHit()
 	{
-		return true;
+		return hit;
 	}
-	string msg() { return "Neutral Tile"; };
+	string msg()
+	{
+		if (isHit())
+		{
+			return secretValue;
+		}
+		else
+		{
+			return "~";
+		}
+	}
+	void setHit()
+	{
+		hit = true;
+	}
 };
 
 #endif
