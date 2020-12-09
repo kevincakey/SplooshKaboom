@@ -7,8 +7,13 @@
 
 class FogCreator : public TileCreator
 {
+private:
+	int xLoc;
+	int yLoc;
+	Squid* squid;
 public:
-	Tile* createTile(int x, int y, Squid* s) { return new Fog(x, y, s); };
+	FogCreator(int xL, int yL, Squid* sq) { xLoc = xL; yLoc = yL; squid = sq; };
+	Tile* createTile() { return new Fog(xLoc, yLoc, squid); };
 };
 
 #endif

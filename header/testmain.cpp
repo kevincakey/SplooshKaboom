@@ -19,11 +19,12 @@ void ClientCode(TileCreator& t)
 
 int main()
 {
-	TileCreator * e = new EnemyCreator();
+	Squid* s = new Squid(1, 1, 9, 9);
+	TileCreator * e = new EnemyCreator(3, 3, s);
 	ClientCode(*e);
-	TileCreator* n = new NeutralCreator();
+	TileCreator* n = new NeutralCreator(3, 3, s);
 	ClientCode(*n);
-	TileCreator* f = new FogCreator();
+	TileCreator* f = new FogCreator(3, 3, s);
 	ClientCode(*f);
 
 	delete e;
