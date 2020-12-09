@@ -23,14 +23,14 @@ void Easy::makeSquids(Squid* toCreate) {
 		if (begY > endY) {
 			swap(begY, endY);
 		}
-		while (endY - begY < 5){
+		while (endY - begY < 5) {
 			endY = rand() % 8;
 			if (begY > endY) {
 				swap(begY, endY);
 			}
 		}
 	}
-	else {
+	else {//if y is to be the same
 		endY = begY;
 
 		endX = rand() % 8;
@@ -44,6 +44,26 @@ void Easy::makeSquids(Squid* toCreate) {
 			}
 		}
 	}
-	toCreate->setXLoc(begX, endX);
-	toCreate->setYLoc(begY, endY);
+	begX++;
+	begY++;
+
+	endX++;
+	endY++;
+
+	if (begX != endX) {
+		for (int i = begX; i <= endX; i++) {
+			toCreate->setXLoc(i);
+			toCreate->setYLoc(begY);
+		}
+	}
+	else if (begY != endY) {
+		for (int i = begY; i <= endY; i++) {
+			toCreate->setXLoc(begX);
+			toCreate->setYLoc(i);
+		}
+	}
+	else {
+		cout << "error: squid creation failed" << endl;
+		exit;
+	}
 }

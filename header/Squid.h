@@ -20,9 +20,8 @@ public:
 	bool isSquid(int, int);
 	vector<int> getXPos();
 	vector<int> getYPos();
-	void setXLoc(int, int);
-	void setYLoc(int, int);
+	void setXLoc(int);
+	void setYLoc(int);
 	void setDifficulty(Difficulty* difficulty);
 };
-
 #endif
