@@ -1,0 +1,73 @@
+int main
+
+user selects difficulty
+
+create squid
+
+squid difficulty = user input    lines 6&7 use strategy
+difficulty->create MainSquid
+
+vector <vector <tile> board
+
+for (board size){
+createTile(MainSquid);  for loop uses factory
+}
+
+visitor prints board
+call tile print function
+
+get user input
+iterator get tile to check if its a hit/miss
+
+iterator calls to create a new tile at same location
+vector.at(loc).at(loc) = iterator creat tile
+
+
+visitor
+		go to the tile and check it
+			tile->return type
+			Fogtile->isHit === tile->isHit->squid->isHit
+
+		visitor create a new tile at the same location
+			tile->creteEnemy
+			tile->createNeutral
+
+factory
+	hit and miss tiles should not be able to be hit
+	if they are selected tell user to choose new location
+
+
+	MissTile->isHit{
+	return -1
+	}
+
+	if (isHit == 1){
+	cout << "you hit a squid"
+	create hit tile
+	}
+
+	else if(isHit == 0){
+	you missed you suck
+	crete miss tile
+	}
+	else (is hit == -1){
+		you selected a tile that has already selected please choose a new one
+	}
+
+	missTIle ishit(x,y){
+	return -1}
+
+	EnemyTile isHit(x,y){
+	return -1}
+
+	FogTile isHIt(x,y){
+		squid->isHit(x,y)
+	}
+
+	createFogTile(squid)
+		Squidptr = squid;
+		other things to instantiate
+
+	FogTile::IsHit(x,y){
+		Squidptr->isHit(x,y);
+	}
