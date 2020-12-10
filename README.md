@@ -52,7 +52,7 @@
  
  iterator
  
-![iterator](https://i.imgur.com/7K7rnLz.png)
+![visitor](https://i.imgur.com/9hXLTEk.png)
  
  > ## Phase III
  > ## Final deliverable
