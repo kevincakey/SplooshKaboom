@@ -3,10 +3,10 @@
 #include <time.h>
 #include <cstdlib>
 #include <stdlib.h>
-#include "Squid.cpp"
+#include "../header/Squid.h"
 #include "../header/difficulty.h"
-#include "easy.cpp"
-#include "medium.cpp"
+#include "../header/easy.h"
+#include "../header/medium.h"
 #include "../header/TileCreator.h"
 #include "../header/EnemyCreator.h"
 #include "../header/NeutralCreator.h"
