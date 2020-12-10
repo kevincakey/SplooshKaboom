@@ -64,7 +64,7 @@
 ![start of game](https://i.imgur.com/hF7MWP8.png)
 ![example of a defeat](https://i.imgur.com/8ziji8B.png)
  ## Installation/Usage
-download and run the main.cpp file.
+download and run the main.cpp file within the src file.
  ## Testing
 Due to the game's natured of being a randomly generated location, we had to test through a developer mode showing the locations and ensuring that hits were registered properly. Each person's code was tested indepedently to ensure that it was working as intended. We then combined the code through a common interface and tested that to ensure that it worked properly.  
  
