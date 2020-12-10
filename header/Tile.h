@@ -2,8 +2,10 @@
 #define TiLE_CLASS
 
 #include "Squid.h"
-
+//#include "visitor.hpp"
 using namespace std;
+
+//class Visitor;
 
 class Tile
 {
@@ -12,6 +14,10 @@ public:
 	virtual bool checkSquid() = 0;
 	virtual bool isHit() = 0;
 	virtual void setHit() = 0;
+
+	//void accept(Visitor* vis){
+	//	//vis->checkHit(this);
+	//}
 };
 
 #endif

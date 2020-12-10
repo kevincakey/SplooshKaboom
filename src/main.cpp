@@ -10,121 +10,125 @@
 #include "../header/TileCreator.h"
 #include "../header/EnemyCreator.h"
 #include "../header/NeutralCreator.h"
+#include "../header/visitor.hpp"
 
 using namespace std;
 void printBoard(vector<vector<Tile*>>);
-vector<vector<Tile*>> createBoard(Squid*);
+vector<vector<Tile*>> createBoard(Squid*, Visitor*);
 Difficulty* chooseDifficulty();
 void showSquid(Squid*);
 vector<vector<Tile*>> makeNullBoard();
+void fire(vector<vector<Tile*>> board, Visitor* visitor);
+void hitAll(vector<vector<Tile*>> board);
 
 int main()
 {
 	srand(time(0));
-	int row = 1;
-	int guessX = -1;
-	int guessY = -1;
-
-
 	Squid* mainSquid = new Squid();
 
 	Difficulty* difficulty = chooseDifficulty();
 	mainSquid->setDifficulty(difficulty);
 
 	mainSquid->createSquid();
-	showSquid(mainSquid);
+	//showSquid(mainSquid);
+
+	Visitor* visitor = new Visitor();
 	
-	vector<vector<Tile*>> board = createBoard(mainSquid);
+	vector<vector<Tile*>> board = createBoard(mainSquid, visitor);
 
 	printBoard(board);
-
-	cout << "guess x is: ";
-	cin >> guessX;
-	cout << "guessY is: ";
-	cin >> guessY;
-
-	if (mainSquid->isSquid(guessX, guessY)) {
-		cout << "is a hit!" << endl;
-	}
-	else {
-		cout << "was not a hit :(" << endl;
+	
+	int numTries = 15;
+	//start of firing/game
+	while (visitor->squidsLeft() > 0 && numTries > 0)
+	{
+		cout << numTries << " tries left!" << endl;
+		fire(board, visitor);
+		printBoard(board);
+		numTries--;
 	}
 
-	printBoard(board);
+	if (visitor->squidsLeft() > 0)
+	{
+		cout << "Defeat... T.T" << endl;
+		hitAll(board);
+	}
+	else
+	{
+		cout << "Victory!!!! POG" << endl;
+	}
+
+	return 0;
 }
 void printBoard(vector<vector<Tile*>> brd) {
-	cout << "printing out board" << endl;
+	//cout << "printing out board" << endl;
 	int row = 1;
 	cout << "  |1|2|3|4|5|6|7|8|" << endl;
-	for (int i = 0; i < 8; i++) {
+	for (int i = 0; i < brd.size(); i++) {
 		cout << row << " |";
-		for (int j = 0; j < 8; j++)
+		//cout << "brd.ati.size" << brd.at(i).size() << endl;
+		for (int j = 0; j < brd.at(i).size(); j++)
 		{
-			cout << brd.at(i).at(j)->msg() << "|";
+			cout << brd.at(j).at(i)->msg() << "|";
 		}
 		cout << endl;
 		row = row + 1;
 	}
 }
 
-vector<vector<Tile*>> createBoard(Squid* squid)
+vector<vector<Tile*>> createBoard(Squid* squid, Visitor* visitor)
 {
 	vector<vector<Tile*>> board = makeNullBoard();
 	vector<int> xPos = squid->getXPos();
 	vector<int> yPos = squid->getYPos();
-	cout << "making board with tiles" << endl;
+	//cout << "making board with tiles" << endl;
 	//make board of Tiles here
 
-	cout << "starting filling the vector" << endl;
-	for (int i = 0; i < 8; i++)
+	//cout << "starting filling the vector" << endl;
+	
+	TileCreator* newEnemy = new EnemyCreator();
+
+	//cout << "xPos.size(): " << xPos.size();
+	//cout << "yPos.size(): " << yPos.size();
+
+
+
+	for (int i = 0; i < xPos.size(); i++)
 	{
-		//cout << "first forloop" << endl;
-		for (int j = 0; j < 8;j++)
-		{
-			//cout << "second forloop" << endl;
-			for (int I = 0; I < xPos.size();I++) 
-			{
-				for (int J = 0; J < yPos.size();J++) 
-				{
-					if (i == xPos.at(I) && j == yPos.at(J))
-					{
-						//cout << "squid here" << endl;
-						TileCreator* newEnemy = new EnemyCreator();
-						Tile* enemyTile = newEnemy->createTile();
-						board.at(i).at(j) = enemyTile;
-					}
-					else
-					{
-						//cout << "empty here" << endl;
-						TileCreator* newNeutral = new NeutralCreator();
-						//cout << "tile creator" << endl;
-						Tile* neutralTile = newNeutral->createTile();
-						//cout << "tile" << endl;
-						//cout << "i: " << i << " j: " << j << endl;
-						board.at(i).at(j) = neutralTile;//push back puts into pos 9
-						//cout << "equals" << endl;
-					}
-				}
-			}
-		}
+		//cout << "i: " << i << endl;
+		Tile* enemyTile = newEnemy->createTile();
+		//cout << "xPos.at(i): " << xPos.at(i) << endl;
+		//cout << "yPos.at(i): " << yPos.at(i) << endl;
+		board.at(xPos.at(i) - 1).at(yPos.at(i) - 1) = enemyTile;
+		//cout << "past board" << endl;
+		visitor->countSquids(board.at(xPos.at(i) - 1).at(yPos.at(i) - 1));
 	}
+	//cout << "done making enemies" << endl;
+
 	return board;
 }
 
 vector<vector<Tile*>> makeNullBoard()
 {
-	vector<Tile*> initialFill;
-	for (int i = 0; i < 8; i++)
-	{
-		initialFill.push_back(nullptr);
-	}
-	cout << "Initial fill size" << initialFill.size() << endl;
+	//cout << "Making null Board" << endl;
 	vector<vector<Tile*>> board;
 	for (int j = 0; j < 8;j++)
 	{
-		board.push_back(initialFill);
+		vector<Tile*> initialFill;
+		for (int i = 0; i < 8; i++) //combined the two, issue most likely was pushing back same vector to all vectorvectors
+		{
+			TileCreator* newNeutral = new NeutralCreator();
+			Tile* neutralTile = newNeutral->createTile();
+			initialFill.push_back(neutralTile);
+			//cout << "Initial fill size" << initialFill.size() << endl;
+			if (i == 7)
+			{
+				board.push_back(initialFill);
+			}
+		}
 	}
-	cout << "v size" << board.size() << endl;
+	//printBoard(board);
+	//cout << "v size" << board.size() << endl;
 	return board;
 }
 
@@ -164,7 +168,47 @@ void showSquid(Squid* squid)
 	}
 }
 
-//void fire(Squid* squid)
-//{
-//
-//}
+void fire(vector<vector<Tile*>> board, Visitor* visitor)
+{
+	int guessX = -1;
+	int guessY = -1;
+
+	cout << "guess x is: ";
+	cin >> guessX;
+	cout << "guessY is: ";
+	cin >> guessY;
+
+	guessX--;
+	guessY--;
+
+	while (board.at(guessX).at(guessY)->isHit() == true)
+	{
+		cout << "Please choose a tile that hasn't been selected yet!" << endl;
+		cout << "guess x is: ";
+		cin >> guessX;
+		cout << "guessY is: ";
+		cin >> guessY;
+
+		guessX--;
+		guessY--;
+	}
+
+	if (board.at(guessX).at(guessY)->checkSquid()) {
+		cout << "KABOOM! :o" << endl;
+	}
+	else {
+		cout << "sploosh :(" << endl;
+	}
+	visitor->checkHit(board.at(guessX).at(guessY));
+}
+
+void hitAll(vector<vector<Tile*>> board)
+{
+	for (int i = 0; i < board.size(); i++) {
+		for (int j = 0; j < board.at(i).size(); j++)
+		{
+			board.at(i).at(j)->setHit();
+		}
+	}
+	printBoard(board);
+}
