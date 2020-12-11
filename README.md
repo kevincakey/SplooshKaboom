@@ -17,8 +17,8 @@
 
 ## Project Description
  > Your project description should summarize the project you are proposing. Be sure to include
- > * Why is it important or interesting to you?
-       > * We wanted to recreate Sploosh Kaboom from the Legend of Zelda game in our own way for fun and to try out the video game development process.
+ > * Why is it important or interesting to you?  
+       *We wanted to recreate Sploosh Kaboom from the Legend of Zelda game in our own way for fun and to try out the video game development process.*
  > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
  >   * [toolname](link) - Short description
            > * Language: C++ Tools: Hammer/Putty, Some sort of visualization GUI
