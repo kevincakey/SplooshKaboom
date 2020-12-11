@@ -55,7 +55,9 @@
  Visitor
  
 ![visitor](https://i.imgur.com/9hXLTEk.png)
- 
+
+>The Visitor design pattern reads the tile's identity, enemy or neutral. Initially, the tile's identity is hidden. Its functions are used throughout the program to let the user know how many enemy tiles there are, checks the specific tile the user calls, and afterwards reveals the tile's identity, enemy or neutral.
+
  > ## Phase III
  > ## Final deliverable
  > All group members will give a demo to the TA during lab time. The TA will check the demo and the project GitHub repository and ask a few questions to all the team members. 
