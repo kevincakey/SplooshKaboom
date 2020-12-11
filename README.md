@@ -26,9 +26,10 @@
           *Mouse click/arrow keys from the user, Output: some sort of visual indication/increase in point system/reward screen for the user when winning*
  > * What are the three design patterns you will be using. For each design pattern you must:
  >   * Explain in 3 - 5 sentences why you picked this pattern and what feature you will implement with it
- > * This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
+ > * This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted.  
    *Factory method: 2 separate tile states: hit and miss. Using the factory method we could generate different types of tiles that can display information for the user and the other methods/functions in the game. We picked this pattern because we wanted the creation of entities within our game to be more efficient so the code will be more organized, and so that we would have the ability to easily add in different types of more complicated tiles with dfferent effects, or create variation in the types of enemies, shots, etc*  
    *Strategy: We picked strategy because we wanted a design pattern that could help us alter the game's experience. With this design pattern, we could change the difficulty of the game and create potential to manipulate aspects of the game such as the size of tiles, number of enemies, number of user shots, or we could include/remove obstacles and events that could hinder/boost user advantage. We could implement a change in board size, for example, with a 2-dimensional array or a double Linked-list.*  
+   
    *Visitor: We picked visitor as our third design pattern. Visitor will detect which tiles contain a squid and alert the user if the tile that was fired upon is has a squid or not. When fired upon, the tile's hidden value or message will be revealed. Example: untouched = '~' -> either squid = 'x' or no_squid='o'.*
 
  > ## Phase II
