@@ -50,6 +50,8 @@
  
  ![factory method](https://i.imgur.com/uh9w1j2.png)
  
+>The Factory Method creates two different Tiles, enemy and neutral, with 2 different creators, enemyCreator and neutralCreator. These tiles hold different values in their variables based on their classes, and these functions and variables are put into action when the board of a vector vector Tile* is created and the vistor design pattern changes them.
+ 
  Visitor
  
 ![visitor](https://i.imgur.com/9hXLTEk.png)
