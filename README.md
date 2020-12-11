@@ -47,6 +47,7 @@
  Strategy pattern
  
  ![strategy classes](https://i.imgur.com/h6jMNGa.png)
+ >Strategy creates a squid object. It will not instantiate the squid, but instead determines where in the board it is located. The Squid class itself will maintain an internal dual vector system that can return the positions of the squid through getter functions.
  
  ![factory method](https://i.imgur.com/uh9w1j2.png)
  
