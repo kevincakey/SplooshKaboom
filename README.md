@@ -20,16 +20,16 @@
  > * Why is it important or interesting to you?  
        *We wanted to recreate Sploosh Kaboom from the Legend of Zelda game in our own way for fun and to try out the video game development process.*
  > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
- >   * [toolname](link) - Short description
-           > * Language: C++ Tools: Hammer/Putty, Some sort of visualization GUI
+ >   * [toolname](link) - Short description  
+           *Language: C++ Tools: Hammer/Putty, Some sort of visualization GUI*
  > * What will be the input/output of your project?
-          > * Mouse click/arrow keys from the user, Output: some sort of visual indication/increase in point system/reward screen for the user when winning
+          *Mouse click/arrow keys from the user, Output: some sort of visual indication/increase in point system/reward screen for the user when winning*
  > * What are the three design patterns you will be using. For each design pattern you must:
  >   * Explain in 3 - 5 sentences why you picked this pattern and what feature you will implement with it
  > * This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
-> * Factory method: 3 separate tile states: untouched, hit, miss. Using the factory method we could generate different types of tiles as indicators of how the user has       interacted with the tiles, as well as implementing a mechanic that causes the user to change their game-play strategy based on effects they get from different tiles. This method could also be included in making different types of enemies to hit that influence the game in different ways, but have a general commanlity such as an amount of health, armor, size, etc. We picked this pattern because with what we intend to use it for, the creation of entities within our game will be more efficient and the code will be more organized.
-> * Strategy: We picked strategy because we wanted a design pattern that could help us alter the game's experience. With this design pattern, we could manipulate the   size of tiles, size of enemies, number of enemies, number of user shots, or we could include/remove obstacles and events that could hinder/boost user advantage. We could implement a change in board size, for example, with a 2-dimensional array or a double Linked-list.
-> * Visitor: We picked visitor as our third design pattern. Visitor will detect which tiles contain a squid and alert the user if the tile that was fired upon is has a squid or not. When fired upon, the tile's hidden value or message will be revealed. Example: untouched = '~' -> either squid = 'x' or no_squid='o'.
+   *Factory method: 2 separate tile states: hit and miss. Using the factory method we could generate different types of tiles that can display information for the user and the other methods/functions in the game. We picked this pattern because we wanted the creation of entities within our game to be more efficient so the code will be more organized, and so that we would have the ability to easily add in different types of more complicated tiles with dfferent effects, or create variation in the types of enemies, shots, etc*  
+   *Strategy: We picked strategy because we wanted a design pattern that could help us alter the game's experience. With this design pattern, we could change the difficulty of the game and create potential to manipulate aspects of the game such as the size of tiles, number of enemies, number of user shots, or we could include/remove obstacles and events that could hinder/boost user advantage. We could implement a change in board size, for example, with a 2-dimensional array or a double Linked-list.*  
+   *Visitor: We picked visitor as our third design pattern. Visitor will detect which tiles contain a squid and alert the user if the tile that was fired upon is has a squid or not. When fired upon, the tile's hidden value or message will be revealed. Example: untouched = '~' -> either squid = 'x' or no_squid='o'.*
 
  > ## Phase II
  > In addition to completing the "Class Diagram" section below, you will need to 
