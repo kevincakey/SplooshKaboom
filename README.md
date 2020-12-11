@@ -48,7 +48,7 @@
  
  ![strategy classes](https://i.imgur.com/h6jMNGa.png)
  
- ![factory method](https://imgur.com/a/8fNagzz)
+ ![factory method](https://imgur.com/a/8fNagzz.png)
  
  Visitor
  
