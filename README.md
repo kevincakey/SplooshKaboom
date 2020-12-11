@@ -29,7 +29,7 @@
  > * This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
 > * Factory method: 3 separate tile states: untouched, hit, miss. Using the factory method we could generate different types of tiles as indicators of how the user has       interacted with the tiles, as well as implementing a mechanic that causes the user to change their game-play strategy based on effects they get from different tiles. This method could also be included in making different types of enemies to hit that influence the game in different ways, but have a general commanlity such as an amount of health, armor, size, etc. We picked this pattern because with what we intend to use it for, the creation of entities within our game will be more efficient and the code will be more organized.
 > * Strategy: We picked strategy because we wanted a design pattern that could help us alter the game's experience. With this design pattern, we could manipulate the   size of tiles, size of enemies, number of enemies, number of user shots, or we could include/remove obstacles and events that could hinder/boost user advantage. We could implement a change in board size, for example, with a 2-dimensional array or a double Linked-list.
-> * Iterator: We picked iterator as our third design pattern. The iterator design pattern will detect and alert the user if a tile was a miss or a hit. Value of hit or miss will change or assign the targeted tile's status of untouched to another value. Example: untouched=0, hit=1, miss=2.
+> * Visitor: We picked visitor as our third design pattern. Visitor will detect which tiles contain a squid and alert the user if the tile that was fired upon is has a squid or not. When fired upon, the tile's hidden value or message will be revealed. Example: untouched = '~' -> either squid = 'x' or no_squid='o'.
 
  > ## Phase II
  > In addition to completing the "Class Diagram" section below, you will need to 
@@ -50,7 +50,7 @@
  
  ![factory method](https://i.imgur.com/NwzZUcT.png)
  
- iterator
+ Visitor
  
 ![visitor](https://i.imgur.com/9hXLTEk.png)
  
