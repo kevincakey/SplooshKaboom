@@ -1,12 +1,7 @@
 #include <iostream>
-#include <vector>
-#include <time.h>
 #include <cstdlib>
 #include <stdlib.h>
-#include "Squid.h"
-#include "difficulty.h"
-#include "easy.h"
-#include "medium.h"
+
 #include "TileCreator.h"
 #include "EnemyCreator.h"
 #include "NeutralCreator.h"
@@ -14,135 +9,90 @@
 
 using namespace std;
 
-vector<vector<Tile*>> createBoard(Squid*, Visitor*);
-Difficulty* chooseDifficulty();
-void showSquid(Squid*, Visitor*);
-vector<vector<Tile*>> makeNullBoard();
-void fire(vector<vector<Tile*>> board, Visitor* visitor);
+void testTilesHit(TileCreator&, Visitor*);
+void testTilesNotHit(TileCreator&, Visitor*);
 
 int main()
 {
-	srand(time(0));
-	Squid* mainSquid = new Squid();
-	Visitor* visitor = new Visitor();
-	Difficulty* difficulty = chooseDifficulty();
-	mainSquid->setDifficulty(difficulty);
-	mainSquid->createSquid();
-	showSquid(mainSquid, visitor);
-	vector<vector<Tile*>> board = createBoard(mainSquid, visitor);
+	Visitor* vis = new Visitor();
 
-	int numTries = 15;
+	TileCreator* enemy = new EnemyCreator();
+	TileCreator* neutral = new NeutralCreator();
 
-	while (visitor->squidsLeft() > 0 && numTries > 0)
-	{
-		cout << numTries << " tries left!" << endl;
-		cout << "SQUIDS DETECTED: " << visitor->squidsLeft() << endl;
-		fire(board, visitor);
-		numTries--;
-	}
-	if (visitor->squidsLeft() > 0)
-	{
-		cout << "Squids survived, they took over the Earth!" << endl;
-	}
-	else
-	{
-		cout << "Squids are now extinct" << endl;
-	}
+	testTilesHit(*enemy, vis);
+	cout << endl;
+	testTilesHit(*neutral, vis);
+
+	cout << endl;
+
+	testTilesNotHit(*enemy, vis);
+	cout << endl;
+	testTilesNotHit(*neutral, vis);
+
+	delete enemy;
+	delete neutral;
+
 	return 0;
 }
 
-vector<vector<Tile*>> createBoard(Squid* squid, Visitor* visitor)
+void testTilesHit(TileCreator& t, Visitor* vis)
 {
-	vector<vector<Tile*>> board = makeNullBoard();
-	vector<int> xPos = squid->getXPos();
-	vector<int> yPos = squid->getYPos();
+	Tile* tile = t.createTile();
+	vis->countSquids(tile);
 
-	TileCreator* newEnemy = new EnemyCreator();
-
-	for (int i = 0; i < xPos.size(); i++)
-	{
-		Tile* enemyTile = newEnemy->createTile();
-		board.at(xPos.at(i) - 1).at(yPos.at(i) - 1) = enemyTile;
-		visitor->countSquids(board.at(xPos.at(i) - 1).at(yPos.at(i) - 1));
-	}
-	return board;
-}
-
-vector<vector<Tile*>> makeNullBoard()
-{
-	vector<vector<Tile*>> board;
-	/*vector<Tile*> initialFill;*/
-	for (int i = 0; i < 8; i++)
-	{
-		vector<Tile*> initialFill;
-		for (int j = 0; j < 8; j++)
-		{
-			TileCreator* newNeutral = new NeutralCreator();
-			Tile* neutralTile = newNeutral->createTile();
-			initialFill.push_back(neutralTile);
-			if (j == 7)
-			{
-				board.push_back(initialFill);
-			}
-		}
-	}
-	return board;
-}
-
-Difficulty* chooseDifficulty() {
-	return new Easy();
-}
-
-void showSquid(Squid* squid, Visitor* visitor)
-{
-	vector<int> xPos = squid->getXPos();
-	vector<int> yPos = squid->getYPos();
-
-	int squids = visitor->squidsLeft();
-
-	cout << "Squids at: \n";
-
-	for (int i = 0; i < xPos.size(); i++) {
-		squids = i;
-		cout << xPos.at(i) << " ";
-		cout << yPos.at(i) << " ";
-		cout << endl;
-	}
+	cout << "Squids detected: " << vis->squidsLeft();
 	cout << endl;
-	cout << squids + 1 << " Squids Created: " << endl;
-	cout << endl;
+
+	cout << "message: " << tile->msg() << endl;
+	if (tile->checkSquid())
+	{
+		cout << "Tile is a squid" << endl;
+	}
+	else
+	{
+		cout << "Tile is not a squid" << endl;
+	}
+
+	vis->checkHit(tile);
+	if (tile->isHit())
+	{
+		cout << "Tile is hit" << endl;
+	}
+	else
+	{
+		cout << "Tile isnt hit" << endl;
+	}
+
+	cout << "message: " << tile->msg() << endl;
 }
 
-void fire(vector<vector<Tile*>> board, Visitor* visitor)
+void testTilesNotHit(TileCreator& t, Visitor* vis)
 {
-	int guessX = -1;
-	int guessY = -1;
+	Tile* tile = t.createTile();
+	vis->countSquids(tile);
 
-	cout << "\nguess x is: ";
-	cin >> guessX;
-	cout << "guessY is: ";
-	cin >> guessY;
+	cout << "Squids detected: " << vis->squidsLeft();
+	cout << endl;
 
-	guessX--;
-	guessY--;
-
-	while (board.at(guessX).at(guessY)->isHit() == true)
+	cout << "message: " << tile->msg() << endl;
+	if (tile->checkSquid())
 	{
-		cout << "Choose Coordinates " << endl;
-		cout << "guess x is: ";
-		cin >> guessX;
-		cout << "guessY is: ";
-		cin >> guessY;
-
-		guessX--;
-		guessY--;
+		cout << "Tile is a squid" << endl;
+	}
+	else
+	{
+		cout << "Tile is not a squid" << endl;
 	}
 
-	if (board.at(guessX).at(guessY)->checkSquid()) {
-		cout << "\nTile has a squid" << endl;
+	//vis->checkHit(tile);
+	if (tile->isHit())
+	{
+		cout << "Tile is hit" << endl;
 	}
-	else {
-		cout << "\nTile does not have a squid" << endl;
+	else
+	{
+		cout << "Tile isnt hit" << endl;
 	}
-	visitor->checkHit(board.at(guessX).at(guessY));
+
+	cout << "message: " << tile->msg() << endl;
 }
