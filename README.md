@@ -3,7 +3,7 @@
  > Replace anything between \<...\> with your project specifics and remove angle brackets. For example, you need to name your project and replace the header right below this line with that title (no angle brackets). 
 # Sploosh Kaboom
  
- > \<[Jerry Xu](https://github.com/jerryxu158)\>, \<[Kevin Gao](https://github.com/kevincakey)\>, \<[Roz Teves](https://github.com/rozteves)\>
+ > [Jerry Xu](https://github.com/jerryxu158), [Kevin Gao](https://github.com/kevincakey), [Roz Teves](https://github.com/rozteves)
  
  > You will be forming a group of **THREE** students and work on an interesting project that you will propose yourself (in this `README.md` document). You can pick any project that you'd like, but it needs ot implement three design patterns. Each of the members in a group is expected to work on at least one design pattern and its test cases. You can, of course, help each other, but it needs to be clear who will be responsible for which pattern and for which general project features.
  
