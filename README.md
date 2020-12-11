@@ -9,7 +9,7 @@
  
  > ## Expectations
  > * Incorporate **three** distinct design patterns, *two* of the design patterns need to be taught in this course:
- >   * Composite, Strategy, Abstract Factory, Visitor
+ >   * Strategy, Factory, Visitor
  > * All three design patterns need to be linked together (it can't be three distinct projects)
  > * Your project should be implemented in C/C++. If you wish to choose anoher programming language (e.g. Java, Python), please discuss with your lab TA to obtain permission.
  > * You can incorporate additional technologies/tools but they must be approved (in writing) by the instructor or the TA.
